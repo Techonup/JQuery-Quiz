@@ -1,0 +1,111 @@
+// This file is not actually used, but is a copy of the one accessed.
+// See script.js for an explanation of how this works.
+// Live URL: http://techonup.github.io/quiz.json
+
+callback({
+  "1": {
+    "choices": [
+    "Drifblim",
+    "Rattata",
+    "Chinchou",
+    "Raichu"],
+    
+    "question": "What is this Pok&eacute;mon",
+    "correct": "3"
+  },
+  
+  "2": {
+    "choices": [
+    "Mew",
+    "Scizor",
+    "Turtwig"],
+    
+    "question": "What is this Pok&eacute;mon",
+    "correct": "2"
+  },
+  
+  "3": {
+    "choices": [
+    "Alakazam",
+    "Pidove",
+    "Mewtwo",
+    "Machoke"],
+
+    "question": "What is this Pok&eacute;mon",    
+    "correct": "3"
+  },
+  
+  "4": {
+    "choices": [
+    "Latias",
+    "Grumpig"],
+
+    "question": "What is this Pok&eacute;mon",    
+    "correct": "1"
+  },
+  
+  "5": {
+    "choices": [
+    "Mamoswine",
+    "Torterra",
+    "Ariados",
+    "Haunter",
+    "Chesnaught",
+    "Stunfisk"],
+
+    "question": "What is this Pok&eacute;mon",   
+    "correct": "1"
+  },
+  
+  "6": {
+    "choices": [
+    "Lapras",
+    "Leavanny",
+    "Beedrill",
+    "Vanilluxe",
+    "Empoleon"],
+
+    "question": "What is this Pok&eacute;mon",    
+    "correct": "4"
+  },
+  
+  "7": {
+    "choices": [
+    "Wigglytuff",
+    "Shaymin",
+    "Raikou",
+    "Charizard"],
+
+    "question": "What is this Pok&eacute;mon",   
+    "correct": "2"
+  },
+  
+  "8": {
+    "choices": [
+    "Poliwhirl",
+    "Golduck",
+    "Houndour",
+    "Tyrunt"],
+
+    "question": "What is this Pok&eacute;mon",    
+    "correct": "1"
+  },
+  
+  "9": {
+    "choices": [
+    "Greninja",
+    "Primeape",
+    "Dragonair"],
+
+    "question": "What is this Pok&eacute;mon",  
+    "correct": "1"
+  },
+  
+  "10": {
+    "choices": [
+    "Pikachu"],
+
+    "question": "What is this Pok&eacute;mon",  
+    "correct": "1"
+  }
+});

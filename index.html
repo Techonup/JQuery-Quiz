@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        
+        <!-- Returns 304 instead of 200 for a marginally faster load. -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        <!-- Adapted from https://github.com/bethrobson/HTML5/blob/master/PieChart/piechart.js by Elisabeth Robson -->
+        <script src="piechart.js"></script>
+        
+        <script src="script.js"></script>
+    </head>
+    
+    <body> 
+    
+        <h1 id="title">Name that Pok&eacute;mon!</h1>
+        
+        <div id="inputName">
+            <form id="name">
+                Name: <input type="text" name="firstName" id="firstName">
+                <button type="button" onclick="start()">Start!</button>
+            </form>
+        </div>
+        
+        <div id="questions" style="display: none">
+            <h3 id="number"></h3>
+            <div id="question"></div>
+            <div id="image"></div>
+        
+            <p id="noAnswer" style="display: none">Please choose an answer.</p>
+            <form id="answers">
+                
+            </form>
+        </div>
+    
+        <div id="buttons" style="display: none">
+            <button type="button" onclick="goBack()" style="display: none" id="back">Go Back</button>
+            <button type="button" onclick="recordResult()" id="next">Next</button>
+        </div>
+        
+        <div id="results" style="display: none">
+            <p id="score"></p>
+            <canvas id="piechart" height="400" width="400"></canvas>
+        </div>
+        
+    
+    </body>
