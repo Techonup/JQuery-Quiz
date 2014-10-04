@@ -1,10 +1,11 @@
 /*jslint browser: true, plusplus: true*/
-/*global $, console, PieChart*/
+/*global $, console, PieChart, json*/
 
 var questionNumber = 0;
 var responses = [];
 var firstName;
 
+/*
 var json;
 //var jsonURL = "http://techonup.github.io/quiz.json";
 var jsonURL = "quiz.json";
@@ -15,6 +16,7 @@ function callback(response) {
     // See below for an explanation.
     json = response;
 }
+
 
 $(document).ready(function () {
     "use strict";
@@ -38,7 +40,7 @@ $(document).ready(function () {
     });
     
 });
-
+*/
 
 function results() {
     "use strict";
