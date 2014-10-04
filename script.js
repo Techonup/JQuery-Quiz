@@ -28,7 +28,7 @@ $(document).ready(function () {
     //
     // HTTP is used instead of HTTPS to save about 75ms of loading time.
     json = $.ajax({
-        type: "POST",
+        type: "GET",
         //dataType: "jsonp",
         dataType: "json",
         url: jsonURL,
