@@ -7,6 +7,16 @@
         <!-- Returns 304 instead of 200 for a marginally faster load. -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         
+        <script>
+            json = $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "quiz.json",
+                async: false,
+                cache: true
+            });
+        </script>
+        
         <!-- Adapted from https://github.com/bethrobson/HTML5/blob/master/PieChart/piechart.js by Elisabeth Robson -->
         <script src="piechart.js"></script>
         
