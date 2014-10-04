@@ -1,8 +1,4 @@
-// This file is not actually used, but is a copy of the one accessed.
-// See script.js for an explanation of how this works.
-// Live URL: http://techonup.github.io/quiz.json
-
-callback({
+{
   "1": {
     "choices": [
     "Drifblim",
@@ -108,4 +104,4 @@ callback({
     "question": "What is this Pok&eacute;mon",  
     "correct": "1"
   }
-});
+}
