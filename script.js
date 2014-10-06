@@ -1,14 +1,12 @@
 /*jslint browser: true, plusplus: true*/
-/*global $, console, PieChart, json*/
+/*global $, console, PieChart*/
 
 var questionNumber = 0;
 var responses = [];
 var firstName;
 
-/*
 var json;
-//var jsonURL = "http://techonup.github.io/quiz.json";
-var jsonURL = "quiz.json";
+var jsonURL = "http://techonup.github.io/quiz.json";
 
 function callback(response) {
     "use strict";
@@ -16,7 +14,6 @@ function callback(response) {
     // See below for an explanation.
     json = response;
 }
-
 
 $(document).ready(function () {
     "use strict";
@@ -29,18 +26,15 @@ $(document).ready(function () {
     // could also be returned.
     //
     // HTTP is used instead of HTTPS to save about 75ms of loading time.
-    json = $.ajax({
-        type: "GET",
-        //dataType: "jsonp",
-        dataType: "json",
+    $.ajax({
+        type: "POST",
+        dataType: "jsonp",
+        jsonp: "callback",
         url: jsonURL,
-        //crossDomain: true,
-        async: false,
-        cache: true
+        crossDomain: true
     });
     
 });
-*/
 
 function results() {
     "use strict";
