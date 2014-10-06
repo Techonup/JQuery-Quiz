@@ -26,26 +26,15 @@ $(document).ready(function () {
     // could also be returned.
     //
     // HTTP is used instead of HTTPS to save about 75ms of loading time.
-<<<<<<< Updated upstream
     $.ajax({
         type: "POST",
         dataType: "jsonp",
         jsonp: "callback",
-=======
-    json = $.ajax({
-        type: "POST",
-        //dataType: "jsonp",
-        dataType: "json",
->>>>>>> Stashed changes
         url: jsonURL,
         crossDomain: true
     });
     
 });
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 function results() {
     "use strict";
