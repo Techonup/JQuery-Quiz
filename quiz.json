@@ -108,4 +108,8 @@ callback({
     "question": "What is this Pok&eacute;mon",  
     "correct": "1"
   }
+<<<<<<< Updated upstream
 });
+=======
+}
+>>>>>>> Stashed changes
