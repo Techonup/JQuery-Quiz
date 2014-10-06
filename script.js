@@ -18,21 +18,30 @@ function callback(response) {
 $(document).ready(function () {
     "use strict";
     
+    // 9/30/14
     // This is a very hacky way of getting the JSON.
-    //
     // JSON-P is already a really hacky way of getting around cross-domain security policies,
     // but here we use it to just get JSON. The page returns "callback(json)" (the JSON-P tags are ignored)
     // and the callback function (defined above) writes that JSON to a variable. Any other form of data 
     // could also be returned.
-    //
     // HTTP is used instead of HTTPS to save about 75ms of loading time.
+    //
+    // 10/6/14
+    // Added cache. Shaves a bit off loading time.
     $.ajax({
         type: "POST",
         dataType: "jsonp",
-        jsonp: "callback",
+        jsonpCallback: "callback",
         url: jsonURL,
-        crossDomain: true
+        crossDomain: true,
+        cache: true
     });
+    
+    $("#title").text(json[0].title);
+    
+    // Prevents quiz from being accessed before JSON loads.
+    $("#loading").hide();
+    $("#body").show();
     
 });
 
