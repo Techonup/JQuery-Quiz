@@ -13,12 +13,6 @@ function callback(response) {
     
     // See below for an explanation.
     json = response;
-    
-    $("#title").text(json[0].title);
-    
-    // Prevents quiz from being accessed before JSON loads.
-    $("#loading").hide();
-    $("#body").show();
 }
 
 $(document).ready(function () {
@@ -42,7 +36,16 @@ $(document).ready(function () {
         crossDomain: true,
         cache: true
     });
+});
+
+$(document).ajaxComplete(function () {
+    "use strict";
     
+    $("#title").text(json[0].title);
+    
+    // Prevents quiz from being accessed before JSON loads.
+    $("#loading").hide();
+    $("#body").show();
 });
 
 function results() {
