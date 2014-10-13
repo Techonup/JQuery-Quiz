@@ -4,6 +4,7 @@
 var questionNumber = 0;
 var responses = [];
 var firstName;
+var userData;
 
 var json;
 var jsonURL = "http://techonup.github.io/quiz.json";
@@ -42,6 +43,12 @@ $(document).ready(function () {
         crossDomain: true,
         cache: true
     });
+    
+    userData = JSON.parse(localStorage.getItem("users"));
+    
+    if (userData === null) {
+        userData = {};
+    }
 });
 
 function results() {
@@ -50,7 +57,7 @@ function results() {
     // JSLint requires this to be here for the later "for" loop. Honestly, kind of silly,
     // but since JSLint is nice for other things and Brackets doesn't allow you to use 
     // other hinters, we'll deal with it.
-    var i, pieChart, correct = 0, correctPct, incorrectPct, correctDeg, incorrectDeg;
+    var i, pieChart, correct = 0, correctPct, incorrectPct, correctDeg, incorrectDeg, scores;
     
     for (i = 0; i < responses.length; i++) {
         if (responses[i] === json[i + 1].correct) {
@@ -59,15 +66,15 @@ function results() {
     }
     
     $("#score").text(firstName + ", you got " + correct.toString() + " right out of " +
-                     Object.keys(json).length.toString() + " questions!");
+                     (Object.keys(json).length-1).toString()+ " questions!");
     
-    correctDeg = correct * 360 / Object.keys(json).length;
-    correctPct = (correct * 100 / Object.keys(json).length).toString() + "% Correct";
+    correctDeg = correct * 360 / (Object.keys(json).length - 1);
+    correctPct = (correct * 100 / (Object.keys(json).length - 1)).toString() + "% Correct";
     
     if (correct !== Object.keys(json).length) {
         incorrectDeg = 360 - correctDeg;
-        incorrectPct = ((Object.keys(json).length - correct) * 100 / Object.keys(json).length)
-                        .toString() + "% Incorrect";
+        incorrectPct = ((Object.keys(json).length - correct - 1) * 100 / (Object.keys(json).length - 1)
+                        .toString()) + "% Incorrect";
     } else {
         incorrectDeg = 0;
         incorrectPct = '';
@@ -82,7 +89,29 @@ function results() {
         });
     
     pieChart.draw();
-                                
+    
+    userData[firstName][1] = (correct * 100 / (Object.keys(json).length - 1));
+    scores = [];
+    
+    Object.keys(userData).forEach(function (value, index, array) {
+        scores.push([value, userData[value][1]]);
+    });
+    
+    console.log(scores);
+    
+    scores.sort(function (a, b) {
+        a = a[1];
+        b = b[1];
+        return (a === b ? 0 : (a < b ? 1 : -1));
+    });
+    
+    console.log(scores);
+    
+    for (i = 0; i < scores.length; i++) {
+        $("#table").append("<tr><td>" + scores[i][0] + "</td><td>" + scores[i][1].toString() + "</td></tr>");
+    }
+    
+    localStorage.setItem("users", JSON.stringify(userData));
 }
 
 function nextQuestion() {
@@ -100,11 +129,12 @@ function nextQuestion() {
         $("#back").hide();
     } else if (questionNumber === 2) {
         $("#back").show();
+        $("#alerts").hide();
     }
     
     // Since "json" is an Object of Objects, this works as a method of counting questions.
     // Allows any number of questions to be used.
-    if (questionNumber === Object.keys(json).length + 1) {
+    if (questionNumber === Object.keys(json).length) {
         $("#results").fadeIn();
         
         results();
@@ -170,18 +200,44 @@ function recordResult() {
     nextQuestion();
 }
 
-function start() {
+function start(name) {
     "use strict";
     
-    if ($("#firstName") === "") {
-        return;
-    }
+    firstName = name;
     
-    firstName = $("#firstName").val();
-    
-    $("#inputName").hide();
     $("#questions").show();
     $("#buttons").show();
+    $("#login").hide();
     
     nextQuestion();
+}
+
+function login() {
+    "use strict";
+    
+    var username, password;
+    
+    username = $("#user").val();
+    password = $("#pass").val();
+    
+    if (username in userData) {
+        if (password === userData[username][0]) {
+            $("#alerts").text("Logged in.");
+            start(username);
+        } else {
+            $("#alerts").text("Wrong password.");
+        }
+    } else {
+        userData[username] = [password, 0];
+        localStorage.setItem("users", JSON.stringify(userData));
+        $("#alerts").text("Account created.");
+        start(username);
+    }
+}
+
+function loginLoad() {
+    "use strict";
+ 
+    $("#inputName").hide();
+    $("#login").show();
 }

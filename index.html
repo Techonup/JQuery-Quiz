@@ -17,37 +17,64 @@
         <p id="loading">Loading...</p>
             
         <div id="body" style="display: none">
-        <h1 id="title"></h1>
-        
-        <div id="inputName">
-            <form id="name">
-                Name: <input type="text" name="firstName" id="firstName">
-                <button type="button" onclick="start()">Start!</button>
-            </form>
-        </div>
-        
-        <div id="questions" style="display: none">
-            <h3 id="number"></h3>
-            <div id="question"></div>
-            <div id="image"></div>
-        
-            <p id="noAnswer" style="display: none">Please choose an answer.</p>
-            <form id="answers">
+            <h1 id="title"></h1>
+
+            <!--
+            <div id="inputName">
+                <form id="name">
+                    Name: <input type="text" name="firstName" id="firstName">
+                    <button type="button" onclick="start()">Start!</button>
+                </form>
+            </div
+            -->
+            
+            <div id="inputName">
+                <button type="button" onclick="loginLoad()" id="loginLoad">Log in / Register</button>
+            </div>
+
+            <div id="questions" style="display: none">
+                <h3 id="number"></h3>
+                <div id="question"></div>
+                <div id="image"></div>
+
                 
-            </form>
+                <p id="noAnswer" style="display: none">Please choose an answer.</p>
+                <form id="answers">
+
+                </form>
+            </div>
+
+            <div id="buttons" style="display: none">
+                <button type="button" onclick="goBack()" style="display: none" id="back">Go Back</button>
+                <button type="button" onclick="recordResult()" id="next">Next</button>
+            </div>
         </div>
-    
-        <div id="buttons" style="display: none">
-            <button type="button" onclick="goBack()" style="display: none" id="back">Go Back</button>
-            <button type="button" onclick="recordResult()" id="next">Next</button>
-        </div>
-        
+
         <div id="results" style="display: none">
             <p id="score"></p>
             <canvas id="piechart" height="400" width="400"></canvas>
+            
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        
+        <p id="alerts"></p>
+            
+        <div id="login" style="display: none">
+            <h4>Log in / Register</h4>
+            
+            <form id="log">
+                Name: <input type="text" name="user" id="user"><br>
+                Password: <input type="password" name="pass" id="pass">
+            </form>
+            <button type="button" onclick="login()" id="loginButton">Log in / Register</button>
         </div>
         
         <div id="links"><a href="https://github.com/Techonup/JQuery-Quiz">GitHub</a></div>
-        </div>
-            
     </body>
