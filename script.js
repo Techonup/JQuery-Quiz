@@ -8,6 +8,7 @@ var userData;
 
 var json;
 var jsonURL = "http://techonup.github.io/quiz.json";
+var flickrURL = "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=070f5d06eaefc2ccb14dbc52ca35c6d5&format=json&per_page=1&tags="
 
 function callback(response) {
     "use strict";
@@ -66,7 +67,7 @@ function results() {
     }
     
     $("#score").text(firstName + ", you got " + correct.toString() + " right out of " +
-                     (Object.keys(json).length-1).toString()+ " questions!");
+                     (Object.keys(json).length - 1).toString() + " questions!");
     
     correctDeg = correct * 360 / (Object.keys(json).length - 1);
     correctPct = (correct * 100 / (Object.keys(json).length - 1)).toString() + "% Correct";
@@ -114,6 +115,18 @@ function results() {
     localStorage.setItem("users", JSON.stringify(userData));
 }
 
+function jsonFlickrApi(data) {
+    "use strict";
+    
+    data = data.photos.photo[0]
+    
+    $("#flickr").empty();
+    $("#flickr").html("<img src='https://farm" + data.farm.toString() + ".staticflickr.com/" + data.server + "/" 
+                      + data.id + "_" + data.secret + "_n.jpg'>");
+    
+    $("#flickr").fadeIn();
+}
+
 function nextQuestion() {
     "use strict";
     
@@ -147,6 +160,17 @@ function nextQuestion() {
     $("#number").text(questionNumber.toString());
     $("#question").html("<h4>" + json[questionNumber].question + ", " + firstName + "?");
     $("#image").html("<img src='images/" + questionNumber + ".png'>");
+    
+    $("#flickr").hide();
+    // Get Flickr image.
+    $.ajax({
+        type: "POST",
+        dataType: "jsonp",
+        jsonpCallback: "jsonFlickrApi",
+        url: (flickrURL + json[questionNumber].choices[json[questionNumber].correct - 1]),
+        crossDomain: true,
+    });
+        
     
     // Allows any number of choices. Since the choice is stored as a number, there is no limit
     // on how many choices can be implemented.
