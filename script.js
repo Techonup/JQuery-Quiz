@@ -7,7 +7,7 @@ var firstName;
 var userData;
 
 var json;
-var jsonURL = "http://techonup.github.io/quiz.json";
+var jsonURL = "https://techonup.github.io/quiz.json";
 var flickrURL = "https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=070f5d06eaefc2ccb14dbc52ca35c6d5&format=json&per_page=1&tags="
 
 function callback(response) {
