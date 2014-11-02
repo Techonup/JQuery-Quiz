@@ -4,10 +4,6 @@ http://jquery-quiz-node.herokuapp.com/
 Local
 -----
 	node server.js
-    
-Caveats
--------
-Only works under HTTP right now; HTTPS breaks it.
 
 License
 -------
