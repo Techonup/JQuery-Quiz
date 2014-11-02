@@ -1,0 +1,25 @@
+{
+  "name": "JQuery-Quiz-Node",
+  "version": "1.0.0",
+  "description": "JQuery Quiz project for Software Engineering I, November 2014. Hosted on Heroku with Node.js.",
+  "main": "server.js",
+  "dependencies": {
+    "connect": "^3.3.2",
+    "serve-static": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Techonup/JQuery-Quiz.git"
+  },
+  "author": "Edward Fan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Techonup/JQuery-Quiz/issues"
+  },
+  "homepage": "https://github.com/Techonup/JQuery-Quiz"
+}
